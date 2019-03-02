@@ -1,6 +1,13 @@
-# node/express for SSR outside of Sitecore Content Delivery
+# Headless server-side rendering on top of node.js and Express.
 
-Server on top of node.js and Express.
+Characteristics:
+- Rendering performed by server (SSR by Node-as-a-service provider, i.e. Azure App Service, Netlify, Heroku, etc)
+- Data comes from Sitecore CD server via LayoutService API (HTTP calls)
+- Full Sitecore marketing/personalization engine support
+- Usages: decoupling rendering of the JSS app from Sitecore, multichannel API usage
+- **TODO: add redirect manager charactertics**
+
+![Headless server-side rendering mode](https://jss.sitecore.com/assets/img/mode-headless.svg)
 
 The setup is using `sitecore-jss-proxy` that enables request proxying to Sitecore CD along with the http cookies to enable tracking, personalization and contact identification.
 
