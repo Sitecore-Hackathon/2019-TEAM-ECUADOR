@@ -33,7 +33,7 @@ The JSS Redirect Module comes with:
 Users can create redirects anywhere under /sitecore/content (preferrably under /sitecore/content/JSS Redirects). The Node server will retrieve these redirects from Sitecore and will cache them. This cache gets invalidated when any redirect item is published so that the Node server has always the most up-to-date information from Sitecore.
 
 Redirects have the following fields: 
-![Redirect Fields](images/redirect.png?raw=true "Redirect Fields")
+![Redirect Fields](images/redirect.png)
 
 1. Redirect Type: The redirect options are 301, 302 and Server transfer.
 2. Preserve Query String: If chequed, when performin a redirect, the query string will be preserved. If not checked, the query string will be lost after the redirect.
