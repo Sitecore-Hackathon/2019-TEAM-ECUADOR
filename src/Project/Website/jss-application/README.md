@@ -4,6 +4,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
 
 ## Setup
 
+- Open a terminal
 - Install the JSS CLI
 
     ```bash
@@ -51,7 +52,31 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
             }
         }
     ```
-* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may need to add the `hostName` to your `hosts` file)
+* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
+need to add the `hostName` to your `hosts` file)
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy config
+    ```
+
 * Use `jss deploy items -c -d` to deploy the sample to Sitecore
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy items -c -d
+    ```
+
 * Use `jss build:headless` to generate the application js/css bundles.
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss build:headless
+    ```
+
 * Use `jss deploy:headless` to copy the build folder to the `node-headless-ssr-proxy/dist` folder.
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy:headless
+    ```

@@ -26,32 +26,30 @@ The following environment variables can be set to configure the proxy instead of
 
 ## Setup
 
-- Rename `.env-example` file to `.env` and change the environment variables:
+- Open the folder **src/Project/Website/** and rename `.env-example` file to `.env` and change the environment variables:   
 
     ```env
     SITECORE_API_HOST=http://hackathon2019.sc
     SITECORE_API_IP=172.16.81.157
+    
+    # ---------------------------
+    # DO NOT CHANGE THIS VARIABLE
+    # ---------------------------
     SITECORE_JSS_APP_NAME=jss-application
+
     NODE_SSR_PROXY_HOST=172.16.81.250
     NODE_SSR_PROXY_PORT=8080
     ```
 
 ## Build & deploy `jss-application`
 
+- Open a terminal
 - Build your JS app bundle with `jss build:headless`.
 
     ```bash
     cd src/Project/Website/jss-application
     ```
-    **Follow the jss-application [installation guide](../jss-application)**
-
-
-- Deploy the build artifacts from your app (`/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example `$proxyRoot/dist/${jssAppName}`.
-
-    ```bash
-    cd src/Project/Website/jss-application
-    jss deploy:headless
-    ```
+    > **Follow the jss-application [installation guide](../jss-application)**
 
 ## Build & run
 
