@@ -19,9 +19,22 @@ JSS [11.0](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/S
 
 ## Configuration
 
-Sample redirects have been provided under /sitecore/content/JSS Redirects. New items can be created (via insert options of the mentioned folder) to demonstrate the benefits of the JSS Redirect Manager. 
+1. Sample redirects have been provided under /sitecore/content/JSS Redirects. New items can be created (via insert options of the mentioned folder) to demonstrate the benefits of the JSS Redirect Manager. 
 
-In order to interact with JSS applications, an Api Key is needed. In the installed package, an Api Key was included for ease-of-installation purposes. If, by any case, the Api Key needs to be different please refer to [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy) to update the Api Key ID
+2. In order to interact with JSS applications, an Api Key is needed. In the installed package, an Api Key was included for ease-of-installation purposes. If, by any case, the Api Key needs to be different please refer to [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy) to update the Api Key ID
+
+3. Go to App_Config/Include/Foundation/Foundation.RedirectManager.JSSSettings.config and modify the JSS.RedirectManager.ClearNodeCacheUrl setting with the host of your Node server
+
+```
+<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/" xmlns:set="http://www.sitecore.net/xmlconfig/set/">
+    <sitecore>
+        <settings>
+            <setting name="JSS.RedirectManager.RedirectTemaplateID" value="D641E449-3250-4AF7-B380-709D5134916C"/>
+            <setting name="JSS.RedirectManager.ClearNodeCacheUrl" value="http://172.16.81.250:8080/cache"/>
+        </settings>
+    </sitecore>
+</configuration>
+```
 
 ## Usage
 
