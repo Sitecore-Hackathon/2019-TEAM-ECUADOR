@@ -25,7 +25,7 @@ if (proxy) {
         path: path.join(__dirname, '../../node-headless-ssr-proxy/.env')
     });
     const proxyHost = process.env.NODE_SSR_PROXY_HOST || 'localhost';
-    const proxyPort = process.env.NODE_SSR_PROXY_POST || '3000';
+    const proxyPort = process.env.NODE_SSR_PROXY_PORT || '3000';
     configOverride = proxy ? { sitecoreApiHost: `http://${proxyHost}:${proxyPort}`} : configOverride;
 }
 
