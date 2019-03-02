@@ -13,7 +13,7 @@ JSS [11.0](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/S
 
 ## Installation
 
-1. Use the Sitecore Installation wizard to install the [package](/sc.packages/JSSRedirectManager-20190302.5.zip)
+1. Use the Sitecore Installation wizard to install the [package](/sc.package/JSSRedirectManager-20190302.5.zip)
 2. Perform a full site publish.
 3. Follow the [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy)
 
@@ -49,7 +49,7 @@ Redirects have the following fields:
 ![Redirect Fields](https://raw.githubusercontent.com/Sitecore-Hackathon/2019-TEAM-ECUADOR/master/documentation/images/redirect.PNG)
 
 1. Redirect Type: The redirect options are 301, 302 and Server transfer.
-2. Preserve Query String: If chequed, when performin a redirect, the query string will be preserved. If not checked, the query string will be lost after the redirect.
+2. Preserve Query String: If checked, when performing a redirect, the query string will be preserved. If not checked, the query string will be lost after the redirect.
 3. Old Url: Specify the url you would like to redirect from (Accepts regular expressions)
 4. New Url: Specify the url you would like to go to (Accepts regular expressions)
 
