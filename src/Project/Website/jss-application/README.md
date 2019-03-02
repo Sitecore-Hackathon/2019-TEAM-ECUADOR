@@ -4,6 +4,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
 
 ## Setup
 
+- Open a terminal
 - Install the JSS CLI
 
     ```bash
@@ -38,7 +39,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
     - Sitecore import service URL [http://hackathon2019.sc/sitecore/api/jss/import]:
     - Sitecore API Key (ID of API key item): **{C3B3D601-1188-4413-963F-0EFAAC0CDB91}**
 
-* Review the application config patch file(s) in `/sitecore/config` to ensure that it is configured appropriately for your Sitecore installation. 
+* Review the file `src/Project/Website/jss-application/scjssconfig.json` to ensure that it is configured appropriately for your Sitecore installation. 
 
     ```json
         {
@@ -51,7 +52,45 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
             }
         }
     ```
-* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may need to add the `hostName` to your `hosts` file)
+
+* Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
+
+    ```xml
+    <site name="website"
+        hostName="[SITECORE_HOSTNAME]"
+        targetHostName="[SITECORE_HOSTNAME]"
+        rootPath="/sitecore/content/jss-application"
+        startItem="/home"
+        database="master"
+        xdt:Transform="SetAttributes" 
+        xdt:Locator="Match(name)"/>
+    ```
+
+* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
+need to add the `hostName` to your `hosts` file)
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy config
+    ```
+
 * Use `jss deploy items -c -d` to deploy the sample to Sitecore
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy items -c -d
+    ```
+
 * Use `jss build:headless` to generate the application js/css bundles.
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss build:headless
+    ```
+
 * Use `jss deploy:headless` to copy the build folder to the `node-headless-ssr-proxy/dist` folder.
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy:headless
+    ```
