@@ -50,8 +50,8 @@ Redirects have the following fields:
 
 1. Redirect Type: The redirect options are 301, 302 and Server transfer.
 2. Preserve Query String: If checked, when performing a redirect, the query string will be preserved. If not checked, the query string will be lost after the redirect.
-3. Old Url: Specify the url you would like to redirect from (Accepts regular expressions)
-4. New Url: Specify the url you would like to go to (Accepts regular expressions)
+3. Old Url: Specify the url you would like to redirect from (Accepts regular expressions).
+4. New Url: Specify the url you would like to go to.
 
 After a new redirect has been created, make sure to publish so that the Node server gets the latest data from Sitecore. Whenever a request that matches one of your redirect rules come, the Node server will be in charge of performing the redirect and serving the right page. 
 
