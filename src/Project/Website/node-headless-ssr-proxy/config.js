@@ -36,6 +36,10 @@ const config = {
    */
   apiHost: process.env.SITECORE_API_HOST || 'http://my.sitecore.host',
 
+  apiIp: process.env.SITECORE_API_IP || '127.0.0.1',
+
+  proxyIp: process.env.NODE_SSR_PROXY_HOST || '127.0.0.1',
+
   apiRedirects: process.env.SITECORE_API_REDIRECTS || '/api/sitecore/RedirectManager/GetRedirects',
 
   /**

@@ -3,6 +3,7 @@ const qs = require('querystring');
 const request = require('request');
 const url = require('url');
 const axios = require('axios');
+const dns = require('dns');
 const config = require('./config');
 
 const pattern = /^((http|https):\/\/)/;
@@ -20,14 +21,14 @@ function init() {
 function getRedirects() {
     const url = `${config.apiHost}${config.apiRedirects}`;
     return axios.get(url).then(res => {
-        console.log('-------------------------')
-        console.log('Redirect Manager')
-        console.log('-------------------------')
-        console.log(new Date())
-        console.log('-------------------------')
+        console.log('-------------------------');
+        console.log('Redirect Manager');
+        console.log('-------------------------');
+        console.log(new Date());
+        console.log('-------------------------');
         console.log(res.data);
         loadRoutes(res.data);
-        console.log('-------------------------')
+        console.log('-------------------------');
     });
 }
 
@@ -42,7 +43,20 @@ function loadRoutes(routes) {
 }
 
 function cleanCache(req, res) {
-    console.log('host', req.get('host'), req.hostname);
+    const remoteAddress = req.connection.remoteAddress;
+    console.log(
+        'Clean Cache, REMOTE ADDRESS: ',
+        remoteAddress,
+        ', API IP:',
+        config.apiIp,
+        ', PROXY IP: ',
+        config.proxyIp
+    );
+
+    if (config.apiIp !== remoteAddress && config.proxyIp !== remoteAddress) {
+        return res.status(401).json({ success: false });
+    }
+
     router = express.Router();
     getRedirects()
         .then(res.json({ success: true }))
