@@ -10,26 +10,39 @@ namespace Foundation.RedirectManager.Extensions
     {
         public void ItemProcessed(object sender, EventArgs args)
         {
-            var itemProcessedEventArgs = args as ItemProcessedEventArgs;
-            
-            var context = itemProcessedEventArgs?.Context;
-            
-            if (context == null) return;
-            
-            var item = context.PublishHelper?.GetSourceItem(context.ItemId);
-            
-            if (item!=null && !item.TemplateID.ToString().Contains(Sitecore.Configuration.Settings.GetSetting(Constants.RedirectTemplateId))) return;
-            
-            var request = (HttpWebRequest)WebRequest.Create(Sitecore.Configuration.Settings.GetSetting(Constants.ClearNodeCacheUrl));
-           
-            request.Method = "GET";
-            
-            var webResponse = (HttpWebResponse) request.GetResponse();
 
-            if (webResponse.StatusCode != HttpStatusCode.OK)
+            try
             {
-                Log.Error("Error while deleting cache in the Node server. ReponseStream is null", this);
-            }            
+                var itemProcessedEventArgs = args as ItemProcessedEventArgs;
+
+                var context = itemProcessedEventArgs?.Context;
+
+                if (context == null) return;
+
+                var item = context.PublishHelper?.GetSourceItem(context.ItemId);
+
+                if (item != null && !item.TemplateID.ToString().Contains(Sitecore.Configuration.Settings.GetSetting(Constants.RedirectTemplateId))) return;
+
+                var request = (HttpWebRequest)WebRequest.Create(Sitecore.Configuration.Settings.GetSetting(Constants.ClearNodeCacheUrl));
+
+                request.Method = "GET";
+
+                var webResponse = (HttpWebResponse)request.GetResponse();
+
+                if (webResponse.StatusCode != HttpStatusCode.OK)
+                {
+                    Log.Error("Error while deleting cache in the Node server. ReponseStream is null", this);
+                }
+            }
+            catch (Exception e)
+            {
+                Log.Error(e.Message, this);
+
+            }
+
+
+
+
         }
     }
 }

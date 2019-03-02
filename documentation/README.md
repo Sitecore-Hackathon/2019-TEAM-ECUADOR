@@ -1,24 +1,15 @@
-# Documentation
-
-The documentation for this years Hackathon must be provided as a readme in Markdown format as part of your submission. 
-
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
-
-Examples of things to include are the following.
-
 ## Summary
 
-**Category:** Hackathon Category
+**Category:** JSS
 
 What is the purpose of your module? What problem does it solve and how does it do that?
 
+The purpose of the JSS Redirect Manager is to allow Content Authors of sites created using JSS, with a Node server on top of the Sitecore server, to create redirects. This module solves the issue of not being able to have content editor create redirects for JSS sites served by a node server.
+
 ## Pre-requisites
 
-Does your module rely on other Sitecore modules or frameworks?
 
-- List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
+Node [NodeJSv.10.15.1](https://nodejs.org/dist/latest-v10.x/)
 
 ## Installation
 
