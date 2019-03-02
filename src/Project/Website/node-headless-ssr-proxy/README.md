@@ -44,7 +44,7 @@ The following environment variables can be set to configure the proxy instead of
     ```bash
     cd src/Project/Website/jss-application
     ```
-    Follow the jss-application [installation guide](../jss-application)
+    Follow the jss-application [installation guide](../jss-application){:target="_blank"}
 
 
 - Deploy the build artifacts from your app (`/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example `$proxyRoot/dist/${jssAppName}`.
