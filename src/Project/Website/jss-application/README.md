@@ -39,7 +39,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
     - Sitecore import service URL [http://hackathon2019.sc/sitecore/api/jss/import]:
     - Sitecore API Key (ID of API key item): **{C3B3D601-1188-4413-963F-0EFAAC0CDB91}**
 
-* Review the application config patch file(s) in `/sitecore/config` to ensure that it is configured appropriately for your Sitecore installation. 
+* Review the file `src/Project/Website/jss-application/scjssconfig.json` to ensure that it is configured appropriately for your Sitecore installation. 
 
     ```json
         {
@@ -52,6 +52,20 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
             }
         }
     ```
+
+* Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
+
+    ```xml
+    <site name="website"
+        hostName="[SITECORE_HOSTNAME]"
+        targetHostName="[SITECORE_HOSTNAME]"
+        rootPath="/sitecore/content/jss-application"
+        startItem="/home"
+        database="master"
+        xdt:Transform="SetAttributes" 
+        xdt:Locator="Match(name)"/>
+    ```
+
 * Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
 need to add the `hostName` to your `hosts` file)
 
