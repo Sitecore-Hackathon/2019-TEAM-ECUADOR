@@ -52,35 +52,6 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
             }
         }
     ```
-
-* Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
-
-    ```xml
-    <site name="website"
-        hostName="[SITECORE_HOSTNAME]"
-        targetHostName="[SITECORE_HOSTNAME]"
-        rootPath="/sitecore/content/jss-application"
-        startItem="/home"
-        database="master"
-        xdt:Transform="SetAttributes" 
-        xdt:Locator="Match(name)"/>
-    ```
-
-* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
-need to add the `hostName` to your `hosts` file)
-
-    ```bash
-    cd src/Project/Website/jss-application
-    jss deploy config
-    ```
-
-* Use `jss deploy items -c -d` to deploy the sample to Sitecore
-
-    ```bash
-    cd src/Project/Website/jss-application
-    jss deploy items -c -d
-    ```
-
 * Use `jss build:headless` to generate the application js/css bundles.
 
     ```bash
@@ -94,3 +65,32 @@ need to add the `hostName` to your `hosts` file)
     cd src/Project/Website/jss-application
     jss deploy:headless
     ```
+    
+* (OPTIONAL) Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
+
+    ```xml
+    <site name="website"
+        hostName="[SITECORE_HOSTNAME]"
+        targetHostName="[SITECORE_HOSTNAME]"
+        rootPath="/sitecore/content/jss-application"
+        startItem="/home"
+        database="master"
+        xdt:Transform="SetAttributes" 
+        xdt:Locator="Match(name)"/>
+    ```
+
+* (OPTIONAL) Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
+need to add the `hostName` to your `hosts` file)
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy config
+    ```
+
+* (OPTIONAL) Use `jss deploy items -c -d` to deploy the sample to Sitecore
+
+    ```bash
+    cd src/Project/Website/jss-application
+    jss deploy items -c -d
+    ```
+
