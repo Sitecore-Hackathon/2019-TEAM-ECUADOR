@@ -2,58 +2,48 @@
 
 **Category:** JSS
 
-What is the purpose of your module? What problem does it solve and how does it do that?
-
-The purpose of the JSS Redirect Manager is to allow Content Authors of sites created using JSS, with a Node server on top of the Sitecore server, to create redirects. This module solves the issue of not being able to have content editor create redirects for JSS sites served by a node server.
+We had leveraged the JSS architecture ([Headless server-side rendering mode](https://jss.sitecore.com/docs/fundamentals/application-modes)) to Implement a Redirect Manager module in a Node server by extending the Out-Of-The-Box characteristics. This is the architecture recommended by Sitecore for high traffic production sites because it provides better scalability and lower hosting costs. The purpose of the JSS Redirect Manager is to allow Content Authors of sites created using JSS, with a Node server on top of the Sitecore server, to create redirects that would otherwise be imposible with the current Redirect Managers in the market. 
 
 ## Pre-requisites
 
 
 Node [NodeJSv.10.15.1](https://nodejs.org/dist/latest-v10.x/)
 
+JSS [11.0](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/Sitecore_JavaScript_Services_1100.aspx)
+
 ## Installation
 
-Provide detailed instructions on how to install the module, and include screenshots where necessary.
-
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ???
-3. Profit
+1. Use the Sitecore Installation wizard to install the [package](/sc.packages/JSSRedirectManager-20190302.5.zip)
+2. Perform a full site publish.
+3. Follow the [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy)
 
 ## Configuration
 
-How do you configure your module once it is installed? Are there items that need to be updated with settings, or maybe config files need to have keys updated?
+Sample redirects have been provided under /sitecore/content/JSS Redirects. New items can be created (via insert options of the mentioned folder) to demonstrate the benefits of the JSS Redirect Manager. 
 
-Remember you are using Markdown, you can provide code samples too:
-
-```xml
-<?xml version="1.0"?>
-<!--
-  Purpose: Configuration settings for my hackathon module
--->
-<configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
-  <sitecore>
-    <settings>
-      <setting name="MyModule.Setting" value="Hackathon" />
-    </settings>
-  </sitecore>
-</configuration>
-```
+In order to interact with JSS applications, an Api Key is needed. In the installed package, an Api Key was included for ease-of-installation purposes. If, by any case, the Api Key needs to be different please refer to [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy) to update the Api Key ID
 
 ## Usage
 
-Provide documentation  about your module, how do the users use your module, where are things located, what do icons mean, are there any secret shortcuts etc.
+The JSS Redirect Module comes with:
+1. A sample JSS application (Demo application).
+2. A Node server.
+3. A few redirect examples.
 
-Please include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
+Users can create redirects anywhere under /sitecore/content (preferrably under /sitecore/content/JSS Redirects). The Node server will retrieve these redirects from Sitecore and will cache them. This cache gets invalidated when any redirect item is published so that the Node server has always the most up-to-date information from Sitecore.
 
-![Hackathon Logo](images/hackathon.png?raw=true "Hackathon Logo")
+Redirects have the following fields: 
+![Redirect Fields](images/redirect.png?raw=true "Redirect Fields")
 
-You can embed images of different formats too:
+1. Redirect Type: The redirect options are 301, 302 and Server transfer.
+2. Preserve Query String: If chequed, when performin a redirect, the query string will be preserved. If not checked, the query string will be lost after the redirect.
+3. Old Url: Specify the url you would like to redirect from (Accepts regular expressions)
+4. New Url: Specify the url you would like to go to (Accepts regular expressions)
 
-![Deal With It](images/deal-with-it.gif?raw=true "Deal With It")
+After a new redirect has been created, make sure to publish so that the Node server gets the latest data from Sitecore. Whenever a request that matches one of your redirect rules come, the Node server will be in charge of performing the redirect and serving the right page. 
 
-And you can embed external images too:
+The demo JSS application was included as part of this module so that redirects can be tested. Some pages were added: /styleguide, /graphql and /styleguide 2. You can create new redirects to this pages or just test the sample redirects that come with the application. 
 
-![Random](https://placeimg.com/480/240/any "Random")
 
 ## Video
 
