@@ -13,7 +13,7 @@ JSS [11.0](https://dev.sitecore.net/Downloads/Sitecore_JavaScript_Services/110/S
 
 ## Installation
 
-1. Use the Sitecore Installation wizard to install the [package](/sc.packages/JSSRedirectManager-20190302.5.zip)
+1. Use the Sitecore Installation wizard to install the [package](/sc.package/JSSRedirectManager-20190302.5.zip)
 2. Perform a full site publish.
 3. Follow the [Sitecore JSS proxy installation guide](/src/Project/Website/node-headless-ssr-proxy)
 
