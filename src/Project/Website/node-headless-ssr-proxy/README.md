@@ -5,7 +5,6 @@ Characteristics:
 - Data comes from Sitecore CD server via LayoutService API (HTTP calls)
 - Full Sitecore marketing/personalization engine support
 - Usages: decoupling rendering of the JSS app from Sitecore, multichannel API usage
-- **TODO: add redirect manager charactertics**
 
 ![Headless server-side rendering mode](https://jss.sitecore.com/assets/img/mode-headless.svg)
 
@@ -44,7 +43,7 @@ The following environment variables can be set to configure the proxy instead of
     ```bash
     cd src/Project/Website/jss-application
     ```
-    Follow the jss-application [installation guide](../jss-application){:target="_blank"}
+    **Follow the jss-application [installation guide](../jss-application)**
 
 
 - Deploy the build artifacts from your app (`/build` within the app) to the `sitecoreDistPath` set in your app's `package.json` under the proxy root path. Most apps use `/dist/${jssAppName}`, for example `$proxyRoot/dist/${jssAppName}`.
