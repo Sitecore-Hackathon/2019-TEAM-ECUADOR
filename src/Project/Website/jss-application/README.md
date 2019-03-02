@@ -20,7 +20,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
 
 ## Deploying to Sitecore
 
-* Add Sitecore instance `hostname` to your `hosts` file
+* Add Sitecore instance `hostname` to your `hosts` file. For example:
 
     ```bash
     172.16.81.157 hackathon2019.sc
@@ -33,14 +33,18 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
     jss setup
     ```
 
+    Example:
+    ```bash
     - Is your Sitecore instance on this machine or accessible via network share? [y/n]: **Y**
     - Path to the Sitecore folder (e.g. c:\inetpub\wwwroot\my.siteco.re): **/Volumes/wwwroot/Hackathon2019.sc**
     - Sitecore hostname (e.g. http://myapp.local.siteco.re; see /sitecore/config; ensure added to hosts): **http://hackathon2019.sc**
     - Sitecore import service URL [http://hackathon2019.sc/sitecore/api/jss/import]:
     - Sitecore API Key (ID of API key item): **{C3B3D601-1188-4413-963F-0EFAAC0CDB91}**
+    ```
 
 * Review the file `src/Project/Website/jss-application/scjssconfig.json` to ensure that it is configured appropriately for your Sitecore installation. 
 
+    Example
     ```json
         {
             "sitecore": {
@@ -65,8 +69,13 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
     cd src/Project/Website/jss-application
     jss deploy:headless
     ```
-    
-* (OPTIONAL) Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
+
+
+## Optional 
+
+> **If a manual `jss deploy config` needs to be performed, make sure to remote the deploy secret file from `\App_Config\Include\Foundation\jss-application.deploysecret` in the Sitecore Server Instance. Then, you can proceed with the jss deploy following the steps below.**
+
+* Open the file `src/Project/Website/jss-application/sitecore/config/jss-application.config` and update the `hostName` and `targetHostName` attributes.
 
     ```xml
     <site name="website"
@@ -79,7 +88,7 @@ Consult the primary JSS documentation at https://jss.sitecore.net for the latest
         xdt:Locator="Match(name)"/>
     ```
 
-* (OPTIONAL) Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
+* Use `jss deploy config` to deploy the Sitecore config patch files to the Sitecore instance (you may 
 need to add the `hostName` to your `hosts` file)
 
     ```bash
@@ -87,7 +96,7 @@ need to add the `hostName` to your `hosts` file)
     jss deploy config
     ```
 
-* (OPTIONAL) Use `jss deploy items -c -d` to deploy the sample to Sitecore
+* Use `jss deploy items -c -d` to deploy the sample to Sitecore
 
     ```bash
     cd src/Project/Website/jss-application
